@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 {
     'name': "Viettel S-Invoice",
 
@@ -15,10 +14,10 @@
         'data/data.xml',
         'security/ir.model.access.csv'
     ],
+    "license": "LGPL-3",
     "depends": ['base','account'],
     'author': "Fanha Giang",
     'category': 'API Viettel S-Invoice',
     'version': '1.0.0',
-    'sequence': 1,
     'installable': True,
 }
