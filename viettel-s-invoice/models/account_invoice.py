@@ -66,15 +66,19 @@ class AccountInvoice(models.Model):
             "invoiceType": invoice.company_id.vsi_type.code,  # config
             "paymentType": "TM/CK",
             "paymentTypeName": "TM/CK",
-            "paymentStatus": "True",
+            "paymentStatus": True,
             "adjustmentType": 1,
         }
+
+        payments = [{
+            "paymentMethodName": "TM/CK",
+        }]
 
         buyerInfo = {
             "buyerEmail": invoice.partner_id.email,
             "buyerLegalName": invoice.partner_id.name,
             "buyerTaxCode": invoice.partner_id.vat[2:],
-            "buyerAddressLine": invoice.partner_id.street,
+            "buyerAddressLine": "%s, %s, %s" % (invoice.partner_id.street, invoice.partner_id.street2, invoice.partner_id.city),
         }
 
         summarizeInfo = {
@@ -83,7 +87,6 @@ class AccountInvoice(models.Model):
             "totalAmountWithoutTax": invoice.amount_untaxed,
             "totalAmountWithTax": invoice.amount_total,
             "discountAmount": 0,
-            "taxPercentage": invoice.amount_tax * 100 / invoice.amount_untaxed,
         }
 
         taxBreakdowns = []
@@ -96,6 +99,7 @@ class AccountInvoice(models.Model):
             "buyerInfo": buyerInfo,
             "summarizeInfo": summarizeInfo,
             "taxBreakdowns": taxBreakdowns,
+            "payments": payments,
         }
         return data
 
