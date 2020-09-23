@@ -1,3 +1,5 @@
+# © 2018 Fanha (Fanha Giang <fanha99@hotmail.com>)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 {
     'name': "Viettel S-Invoice",
 
@@ -18,6 +20,6 @@
     "depends": ['base','account'],
     'author': "Fanha Giang",
     'category': 'API Viettel S-Invoice',
-    'version': '1.0.1',
+    'version': '1.0.2',
     'installable': True,
 }

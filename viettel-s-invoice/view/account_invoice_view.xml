@@ -9,7 +9,7 @@
 
                 <xpath expr="//button[@name='action_invoice_open'][last()]" position="after">
                      <button name="do_create_draft_invoice"  string="Tạo Hóa Đơn Nháp" type="object" class="oe_highlight"/>
-                     <button name="do_create_invoice"  string="Phát Hành Hóa Đơn" type="object" class="oe_highlight" attrs="{'invisible': [('vsi_status','in',('created','canceled'))]}"/>
+                     <button name="do_create_invoice"  string="Phát Hành Hóa Đơn" type="object" class="oe_highlight" attrs="{'invisible': ['|',('vsi_status','in',('created','canceled')),('state','in',('cancel',))]}"/>
                 </xpath>
 
                 <field name='partner_id' position="after">

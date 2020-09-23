@@ -1,4 +1,5 @@
-# -*- coding: utf-8 -*-
+# © 2018 Fanha (Fanha Giang <fanha99@hotmail.com>)
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 from datetime import datetime
 from odoo import models, fields, api,_
 import requests
@@ -23,7 +24,7 @@ class AccountInvoice(models.Model):
             line_data = {
                 "lineNumber": lineNumber,
                 "itemCode": "product_" + str(invoice_line.product_id.id),
-                "itemName": invoice_line.product_id.name,
+                "itemName": invoice_line.name,
                 "unitName":  invoice_line.product_id.uom_id.name,
                 "unitPrice": invoice_line.price_unit,
                 "quantity": invoice_line.quantity,
