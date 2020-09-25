@@ -14,6 +14,9 @@ class AccountInvoice(models.Model):
         ('canceled', 'Đã hủy trên S-INVOICE'),
         ], string=u'Trạng thái S-INVOICE', copy=False)
 
+    vsi_pattern = fields.Char(string='Invoice Pattern', copy=False, help="The Pattern of this invoice.", readonly=True, states={'draft': [('readonly', False)]})
+    vsi_secret_code = fields.Char(string='Invoice Secret Code', copy=False, help="The Secret Code to download this invoice.", readonly=True, states={'draft': [('readonly', False)]})
+
     def create_invoice_vninvoice(self, invoice):
         invoiceDetails = []
         lineNumber = 0
@@ -135,8 +138,10 @@ class AccountInvoice(models.Model):
                 if info:
                     self.write({
                         'vsi_status': 'created',
-                        'reference': info['invoiceNo'] + ' - ' + info['reservationCode'],
+                        'reference': info['invoiceNo'],
                         'name': info['invoiceNo'],
+                        'vsi_secret_code': info['reservationCode'],
+                        "vsi_pattern": self.company_id.vsi_template
                     })
                 else:
                     raise UserError('Đã tạo hóa đơn nháp')

@@ -20,6 +20,6 @@
     "depends": ['base','account'],
     'author': "Fanha Giang",
     'category': 'API Viettel S-Invoice',
-    'version': '1.0.2',
+    'version': '1.1.0',
     'installable': True,
 }
