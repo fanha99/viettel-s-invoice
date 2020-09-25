@@ -44,15 +44,15 @@ class AccountInvoice(models.Model):
                         breakdown[tax_id.id]["taxAmount"] += invoice_line.price_subtotal * tax_id.amount / 100
                     line_data["taxPercentage"] = tax_id.amount
                     break
-            # else:
-            #     if "-2" not in breakdown:
-            #         breakdown["-2"] = {
-            #             "taxPercentage": -2,
-            #             "taxableAmount": invoice_line.price_subtotal,
-            #             "taxAmount": 0,
-            #         }
-            #     else:
-            #         breakdown["-2"]["taxableAmount"] += invoice_line.price_subtotal
+            else:
+                if "-2" not in breakdown:
+                    breakdown["-2"] = {
+                        "taxPercentage": -2,
+                        "taxableAmount": invoice_line.price_subtotal,
+                        "taxAmount": 0,
+                    }
+                else:
+                    breakdown["-2"]["taxableAmount"] += invoice_line.price_subtotal
 
 
             invoiceDetails.append(line_data)
