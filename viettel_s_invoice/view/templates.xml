@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+		<template id="sinvoice_assets_backend" name="js assets" inherit_id="web.assets_backend">
+			<xpath expr=".">
+                <script type="text/javascript" src="/viettel_s_invoice/static/src/js/badge.js"></script>
+                <link href="/viettel_s_invoice/static/src/less/badge.less" rel="stylesheet" type="text/less"/>
+			</xpath>
+		</template>
+    </data>
+</odoo>

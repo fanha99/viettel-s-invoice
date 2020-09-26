@@ -1,0 +1,62 @@
+// Badges
+
+.badge-variant(@color) {
+  background-color: @color;
+
+  &[href] {
+    &:hover,
+    &:focus {
+      background-color: darken(@color, 10%);
+    }
+  }
+}
+
+//** Default badge background color
+@badge-default-bg:            @btn-default-bg;
+//** Primary badge background color
+@badge-primary-bg:            @brand-primary;
+//** Success badge background color
+@badge-success-bg:            @brand-success;
+//** Info badge background color
+@badge-info-bg:               @brand-info;
+//** Warning badge background color
+@badge-warning-bg:            @brand-warning;
+//** Danger badge background color
+@badge-danger-bg:             @brand-danger;
+
+//** Default badge text color
+@badge-color:                 #fff;
+//** Default text color of a linked badge
+@badge-link-hover-color:      #fff;
+
+
+// Colors
+// Contextual variations (linked badges get darker on :hover)
+
+.badge-default {
+  .badge-variant(@badge-default-bg);
+}
+
+.badge-primary {
+  .badge-variant(@badge-primary-bg);
+}
+
+.badge-success {
+  .badge-variant(@badge-success-bg);
+}
+
+.badge-info {
+  .badge-variant(@badge-info-bg);
+}
+
+.badge-warning {
+  .badge-variant(@badge-warning-bg);
+}
+
+.badge-danger {
+  .badge-variant(@badge-danger-bg);
+}
+
+
+//style
+.badge-auto {width: auto !important;};

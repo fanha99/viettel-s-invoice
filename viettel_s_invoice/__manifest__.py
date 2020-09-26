@@ -11,6 +11,7 @@
         Viettel S-Invoice Intergration
     """,
     "data": [
+        'view/templates.xml',
         'view/account_invoice_view.xml',
         'view/res_company.xml',
         'data/data.xml',
